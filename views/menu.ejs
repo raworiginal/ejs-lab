@@ -6,6 +6,7 @@
   <title>Menu</title>
 </head>
 <body>
+  <%- include('./partials/nav') %>
   <h1>Full Menu</h1>
   <ul>
     <%const mains= menu.filter((item) => item.category === 'mains')%>

@@ -1,5 +1,8 @@
+/* =========== Modules =========== */
 const express = require("express");
 const app = express();
+
+/* =========== Constants =========== */
 const RESTAURANT = {
   name: "The Green Byte Bistro",
   isOpen: false,
@@ -53,7 +56,13 @@ const RESTAURANT = {
     },
   ],
 };
+/* =========== Filered Sections =========== */
+const mainsItems = RESTAURANT.menu.filter((item) => item.category === 'mains');
+const sidesItems = RESTAURANT.menu.filter((item) => item.category === 'sides');
+const dessertsItems = RESTAURANT.menu.filter((item) => item.category === 'desserts');
+const sections = {mains: mainsItems, sides: sidesItems,desserts:dessertsItems}
 
+/* ====================== Routes ====================== */
 
 app.get("/", (req, res) => {
   res.render('home.ejs',RESTAURANT)
@@ -63,7 +72,13 @@ app.get("/menu", (req,res)=>{
   res.render('menu.ejs',RESTAURANT);
 })
 app.get('/menu/:category', (req,res) => {
-  res.render('category.ejs')
+  const category = req.params.category
+  const section = sections[category]
+  res.render('category.ejs', {
+    name: category,
+    items: section
+  })
 })
 
+/* ====================== Listen ====================== */
 app.listen(3000);
