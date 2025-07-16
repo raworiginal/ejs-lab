@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+</head>
+<body>
+  <h1>Full Menu</h1>
+  <ul>
+    <%const mains= menu.filter((item) => item.category === 'mains')%>
+    <%const sides= menu.filter((item) => item.category === 'sides')%>
+    <%const desserts= menu.filter((item) => item.category === 'desserts')%>
+    <%const sections = [mains,sides,desserts]%>
+    
+    <% sections.forEach((section) => {%>
+      <h2><%=section[0].category%></h2>
+      <% section.forEach(dish =>{ %>
+        <li>
+         <h3><%= dish.name %></h3> 
+         <h4>$<%= dish.price %> | Rating: <%= dish.rating %> </h4> <p><%=dish.details %></p>
+        </li>
+        <% }); %>
+    <%})%>
+
+  </ul>
+</body>
+</html>
