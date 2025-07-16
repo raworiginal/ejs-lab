@@ -56,11 +56,11 @@ const RESTAURANT = {
     },
   ],
 };
-/* =========== Filered Sections =========== */
+/* =========== Filtered Sections =========== */
 const mainsItems = RESTAURANT.menu.filter((item) => item.category === 'mains');
 const sidesItems = RESTAURANT.menu.filter((item) => item.category === 'sides');
 const dessertsItems = RESTAURANT.menu.filter((item) => item.category === 'desserts');
-const sections = {mains: mainsItems, sides: sidesItems,desserts:dessertsItems}
+const sections = {mains: mainsItems, sides: sidesItems,desserts: dessertsItems}
 
 /* ====================== Routes ====================== */
 

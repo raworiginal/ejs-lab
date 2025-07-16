@@ -19,7 +19,7 @@
       <% section.forEach(dish =>{ %>
         <li>
          <h3><%= dish.name %></h3> 
-         <h4>$<%= dish.price %> | Rating: <%= dish.rating %> </h4> <p><%=dish.details %></p>
+         <h4>$<%= dish.price %> | Rating: <%= dish.rating %><%=dish.rating===5 ? "⭐":'' %></h4> <p><%=dish.details %></p>
         </li>
         <% }); %>
     <%})%>

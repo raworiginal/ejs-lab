@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title><%=name%></title>
 </head>
 <body>
 <%- include('./partials/nav') %>
-<h2><%=name%></h2>
+<h1><%=name%></h1>
+<ul>
 <% items.forEach((dish)=>{ %>
   <li>
   <h3><%= dish.name %></h3> 
-  <h4>$<%= dish.price %> | Rating: <%= dish.rating %> </h4> <p><%=dish.details %></p>
+  <h4>$<%= dish.price %> | Rating: <%= dish.rating %><%=dish.rating===5 ? "⭐":'' %></h4> 
+  <p><%=dish.details %></p>
 </li>
 <% }) %>
-
+</ul>
